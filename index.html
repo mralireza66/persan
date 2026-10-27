@@ -23,15 +23,15 @@ footer{margin-top:32px;color:var(--mut);font-size:.85rem}
 </style></head><body><div class="w">
 <h1>Cours de persan<span class="fa" lang="fa" dir="rtl">آموزش زبان فارسی</span></h1>
 <p class="sub">Leçons interactives d’après « Gâm-é avval » · Chaque page demande le code reçu de ton professeur.</p>
-<div class="go"><label for="num">Numéro de séance</label><input id="num" type="number" min="1" max="7" inputmode="numeric"><button id="b">Ouvrir</button><span id="msg"></span></div>
-<h2>Séances</h2><div id="L"></div>
+<div class="go"><label for="num">Numéro du cours</label><input id="num" type="number" min="1" max="7" inputmode="numeric"><button id="b">Ouvrir</button><span id="msg"></span></div>
+<h2>Les cours</h2><div id="L"></div>
 <h2>Ressources</h2>
 <a class="s r" href="alphabet-persan-hub.html"><span class="n fa" lang="fa">ب</span><span class="t"><b>Alphabet persan</b><span>Toutes les lettres, écriture et mots</span></span></a>
 <a class="s r" href="conversation-persan.html"><span class="n fa" lang="fa">گ</span><span class="t"><b>Conversation du quotidien</b><span>Phrases utiles</span></span></a>
 <footer>Préparé par Alireza Shakeraneh</footer></div>
 <script>
-const S=[["gam-e-avval-lecon1","Leçon 1","Dialogue et premières lettres"],["gam-e-avval-p19-26","Pages 19 à 26","Gâm-é avval"],["gam-e-avval-p27-30","Pages 27 à 30","Gâm-é avval"],["gam-e-avval-p31-38","Pages 31 à 38","Gâm-é avval"],["gam-e-avval-p39-42","Pages 39 à 42","Gâm-é avval"],["gam-e-avval-p43-50","Pages 43 à 50","Leçon 3"],["gam-e-avval-p51-54","Pages 51 à 54","Leçon 3"]];
-document.getElementById('L').innerHTML=S.map((s,i)=>`<a class="s" href="${s[0]}.html"><span class="n">${i+1}</span><span class="t"><b>Séance ${i+1} · ${s[1]}</b><span>${s[2]}</span></span></a>`).join('');
-function go(){const n=+document.getElementById('num').value;if(n>=1&&n<=S.length)location.href=S[n-1][0]+'.html';else document.getElementById('msg').textContent='Séance 1 à '+S.length+' seulement.'}
+const P=['اول','دوم','سوم','چهارم','پنجم','ششم','هفتم'];const S=[["gam-e-avval-lecon1","Leçon 1","Dialogue et premières lettres"],["gam-e-avval-p19-26","Pages 19 à 26","Gâm-é avval"],["gam-e-avval-p27-30","Pages 27 à 30","Gâm-é avval"],["gam-e-avval-p31-38","Pages 31 à 38","Gâm-é avval"],["gam-e-avval-p39-42","Pages 39 à 42","Gâm-é avval"],["gam-e-avval-p43-50","Pages 43 à 50","Leçon 3"],["gam-e-avval-p51-54","Pages 51 à 54","Leçon 3"]];
+document.getElementById('L').innerHTML=S.map((s,i)=>`<a class="s" href="${s[0]}.html"><span class="n">${i+1}</span><span class="t"><b>Cours ${i+1} · <span class="fa" lang="fa" dir="rtl" style="color:var(--teal);font-weight:800">درس ${P[i]}</span></b><span>${s[1]} · ${s[2]}</span></span></a>`).join('');
+function go(){const n=+document.getElementById('num').value;if(n>=1&&n<=S.length)location.href=S[n-1][0]+'.html';else document.getElementById('msg').textContent='Cours 1 à '+S.length+' seulement.'}
 document.getElementById('b').onclick=go;document.getElementById('num').onkeydown=e=>{if(e.key==='Enter')go()};
 </script></body></html>
